@@ -1,0 +1,23 @@
+comments:
+  UndocumentedPublicClass:
+    active: false
+  UndocumentedPublicFunction:
+    active: false
+  UndocumentedPublicProperty:
+    active: false
+
+style:
+  MagicNumber:
+    active: false
+  ReturnCount:
+    active: false
+  UnnecessaryFilter:
+    active: false
+
+naming:
+  NoNameShadowing:
+    active: false
+
+potential-bugs:
+  ImplicitDefaultLocale:
+    active: false
