@@ -50,13 +50,18 @@ open class MockServiceExtension(
      */
     fun start() {
         errorIfAlreadyStarted()
-        server = Javalin.create {
-            it.requestLogger.http { ctx, executionTimeMs ->
-                project.logger.lifecycle("${ctx.method()} ${ctx.url()} ... ${ctx.status()} in $executionTimeMs ms")
-            }
-        }.also {
-            it.setup()
-        }.start(port)
+        server =
+            Javalin
+                .create {
+                    it.requestLogger.http { ctx, executionTimeMs ->
+                        project.logger.lifecycle(
+                            "${ctx.method()} ${ctx.url()} ... ${ctx.status()}" +
+                                " in $executionTimeMs ms",
+                        )
+                    }
+                }.also {
+                    it.setup()
+                }.start(port)
     }
 
     /**
@@ -65,7 +70,7 @@ open class MockServiceExtension(
      */
     fun stop() {
         server.let {
-            require(it != null) { "Server has not started yet" }
+            requireNotNull(it) { "Server has not started yet" }
             it.stop()
         }
         server = null
@@ -75,7 +80,10 @@ open class MockServiceExtension(
      * Wraps tasks (selected by name) in such a way that the mock service is started before them,
      * and stopped after them.
      */
-    fun wrapTasks(name: String, vararg names: String) {
+    fun wrapTasks(
+        name: String,
+        vararg names: String,
+    ) {
         val tasks = setOf(name, *names)
         project.tasks.matching { it.name in tasks }.configureEach {
             it.dependsOn(startMockTask)
