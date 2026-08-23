@@ -12,6 +12,7 @@ import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldContain
 import io.kotest.matchers.string.shouldNotContain
 import org.gradle.testkit.runner.BuildResult
+import org.gradle.testkit.runner.BuildTask
 import org.gradle.testkit.runner.GradleRunner
 import org.gradle.testkit.runner.TaskOutcome
 import org.junit.jupiter.migrationsupport.rules.EnableRuleMigrationSupport
@@ -54,7 +55,7 @@ class Tests :
                                 .withProjectDir(testFolder.root)
                                 .withPluginClasspath()
                                 .withArguments(test.configuration.tasks + options + test.configuration.options)
-                                .withDebug(true)
+//                                .withDebug(true)
                                 .run { if (test.expectation.failure.isEmpty()) build() else buildAndFail() }
                         println(result.tasks)
                         println(result.output)
@@ -99,8 +100,11 @@ class Tests :
     companion object {
         val log: Logger = LoggerFactory.getLogger(Tests::class.java)
 
+        private fun BuildResult.findTask(nameOrPath: String): BuildTask? =
+            task(nameOrPath) ?: tasks.find { nameOrPath in it.path }
+
         private fun BuildResult.outcomeOf(path: String) =
-            checkNotNull(task(path)?.outcome) {
+            checkNotNull(findTask(path)?.outcome) {
                 "Task $path was not present among the executed tasks"
             }
 
