@@ -1,3 +1,14 @@
+## [1.1.0](https://github.com/gciatto/gradle-mock-service/compare/1.0.10...1.1.0) (2026-08-23)
+
+### Features
+
+* **ci:** add validateMavenCentralPortalPublication to fix release job ([#343](https://github.com/gciatto/gradle-mock-service/issues/343)) ([ffe642c](https://github.com/gciatto/gradle-mock-service/commit/ffe642ca1cd3d860861ed76980788ecdb4159c34))
+
+### Dependency updates
+
+* **core-deps:** update gradle to v9.7.1 ([c20550d](https://github.com/gciatto/gradle-mock-service/commit/c20550dbb6d8873512f8a7a09f672a78243c8c5e))
+* **deps:** update dependency io.javalin:javalin to v6.6.0 ([5b0af46](https://github.com/gciatto/gradle-mock-service/commit/5b0af464b348443a8fb62d29008156d06bf3d9bf))
+
 ## [1.0.10](https://github.com/gciatto/gradle-mock-service/compare/1.0.9...1.0.10) (2026-08-23)
 
 ### Bug Fixes
