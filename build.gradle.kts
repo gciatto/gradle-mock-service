@@ -170,10 +170,8 @@ publishing {
 // publication created by publishOnCentral. Prevent pluginMaven from being published to the
 // ProjectLocal repository (which is used to create the Maven Central zip) to avoid the
 // "will overwrite each other" warning.
-tasks.whenTaskAdded {
-    if (name == "publishPluginMavenPublicationToProjectLocalRepository") {
-        enabled = false
-    }
+tasks.matching { it.name == "publishPluginMavenPublicationToProjectLocalRepository" }.configureEach {
+    enabled = false
 }
 
 signing {
