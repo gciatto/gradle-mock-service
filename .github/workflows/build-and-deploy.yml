@@ -15,7 +15,8 @@ jobs:
           deploy-command: >-
             ./gradlew
             publishAllPublicationsToProjectLocalRepository
-            zipMavenCentralPortalPublication 
+            zipMavenCentralPortalPublication
+            validateMavenCentralPortalPublication
             releaseMavenCentralPortalPublication
             --dry-run
           should-deploy: true
