@@ -166,6 +166,16 @@ publishing {
     }
 }
 
+// java-gradle-plugin creates a 'pluginMaven' publication with the same coordinates as the 'OSSRH'
+// publication created by publishOnCentral. Prevent pluginMaven from being published to the
+// ProjectLocal repository (which is used to create the Maven Central zip) to avoid the
+// "will overwrite each other" warning.
+tasks.whenTaskAdded {
+    if (name == "publishPluginMavenPublicationToProjectLocalRepository") {
+        enabled = false
+    }
+}
+
 signing {
     if (System.getenv()["CI"].equals("true", ignoreCase = true)) {
         val signingKey: String? = findProperty("signingKey")?.toString()
