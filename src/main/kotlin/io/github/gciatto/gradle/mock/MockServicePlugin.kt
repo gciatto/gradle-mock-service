@@ -1,8 +1,8 @@
 package io.github.gciatto.gradle.mock
 
-import org.gradle.api.Action
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.Task
 import org.gradle.kotlin.dsl.create
 
 /**
@@ -11,31 +11,26 @@ import org.gradle.kotlin.dsl.create
 class MockServicePlugin : Plugin<Project> {
     @Suppress("ObjectLiteralToLambda")
     override fun apply(project: Project) {
-        project.tasks.register("startMock") { start ->
-            project.tasks.register("stopMock") { stop ->
-                stop.dependsOn(start)
-                listOf(start, stop).forEach {
-                    it.outputs.upToDateWhen { false }
-                    it.group = "Mocking"
-                }
-                val extension = project.extensions.create<MockServiceExtension>("mockService", project, start, stop)
-                start.doFirst(
-                    object : Action<Any> {
-                        override fun execute(t: Any) {
-                            extension.start()
-                            project.logger.lifecycle("Mock service listening on port ${extension.port}")
-                        }
-                    },
-                )
-                stop.doLast(
-                    object : Action<Any> {
-                        override fun execute(t: Any) {
-                            extension.stop()
-                            project.logger.lifecycle("Mock service stopped")
-                        }
-                    },
-                )
+        val extension = project.extensions.create<MockServiceExtension>("mockService", project)
+        project.tasks.register(MockServiceExtension.TASK_NAME_START_MOCK) {
+            it.doFirst {
+                extension.start()
+                project.logger.lifecycle("Mock service listening on port ${extension.port}")
             }
+            it.configureMockServiceTask()
         }
+        project.tasks.register(MockServiceExtension.TASK_NAME_STOP_MOCK) {
+            it.dependsOn(MockServiceExtension.TASK_NAME_START_MOCK)
+            it.doLast {
+                extension.stop()
+                project.logger.lifecycle("Mock service stopped")
+            }
+            it.configureMockServiceTask()
+        }
+    }
+
+    private fun Task.configureMockServiceTask() {
+        outputs.upToDateWhen { false }
+        group = "Mocking"
     }
 }
