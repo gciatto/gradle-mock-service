@@ -1,0 +1,7 @@
+tests:
+- description: "Mock service listens on a custom port"
+  configuration:
+    tasks: test
+  expectation:
+    output_contains: "GET http://localhost:9090/greet ... 200 OK"
+    success: test
