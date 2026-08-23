@@ -1,0 +1,12 @@
+tests:
+- description: "startMock and stopMock tasks run as part of the lifecycle"
+  configuration:
+    tasks: test
+  expectation:
+    output_contains:
+    - "Mock service listening on port 8083"
+    - "Mock service stopped"
+    success:
+    - test
+    - startMock
+    - stopMock

@@ -1,0 +1,7 @@
+tests:
+- description: "Mock service handles multiple routes"
+  configuration:
+    tasks: test
+  expectation:
+    output_contains: "GET http://localhost:8082/ping ... 200 OK"
+    success: test
