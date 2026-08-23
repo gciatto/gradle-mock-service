@@ -1,3 +1,13 @@
+## [1.1.0](https://github.com/gciatto/gradle-mock-service/compare/1.0.9...1.1.0) (2026-08-23)
+
+### Features
+
+* migrate plugin routing API to Javalin 7.2.3 ([#340](https://github.com/gciatto/gradle-mock-service/issues/340)) ([76df987](https://github.com/gciatto/gradle-mock-service/commit/76df9871cfa924697f3eb54c8aede95242798e89))
+
+### Dependency updates
+
+* **deps:** update dependency io.github.classgraph:classgraph to v4.8.193 ([39bb846](https://github.com/gciatto/gradle-mock-service/commit/39bb8467784641cbd8446c59be76a46c731fa6f5))
+
 ## [1.0.9](https://github.com/gciatto/gradle-mock-service/compare/1.0.8...1.0.9) (2026-08-23)
 
 ### Dependency updates
