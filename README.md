@@ -61,7 +61,7 @@ mockService {
 |---|---|---|---|
 | `port` | `Int` | `8080` | The port the HTTP server listens on. Must be set before the server starts. |
 | `wrapTasks(name, ...)` | function | — | Makes the named tasks depend on `startMock` and be finalized by `stopMock`. |
-| `routes { ... }` | function | — | Configures Javalin routes. The receiver is a `Javalin` instance. |
+| `routes { ... }` | function | — | Configures Javalin routes through the `JavalinDefaultRoutingApi`. |
 
 ## Available tasks
 

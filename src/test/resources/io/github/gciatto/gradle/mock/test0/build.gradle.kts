@@ -7,7 +7,7 @@ mockService {
     port = 8080
     wrapTasks("test")
     routes {
-        get("/hello") { it.result("hello") }
+        get("/hello") { ctx -> ctx.result("hello") }
     }
 }
 
