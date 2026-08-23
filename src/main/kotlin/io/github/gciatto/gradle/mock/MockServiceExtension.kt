@@ -9,14 +9,15 @@ import org.gradle.api.Task
  */
 open class MockServiceExtension(
     private val project: Project,
-    private val startMockTask: Task,
-    private val stopMockTask: Task,
 ) {
     companion object {
         /**
          * Default port for the mock service.
          */
         const val DEFAULT_PORT = 8080
+
+        const val TASK_NAME_START_MOCK = "startMock"
+        const val TASK_NAME_STOP_MOCK = "stopMock"
     }
 
     private var server: Javalin? = null
@@ -86,8 +87,8 @@ open class MockServiceExtension(
     ) {
         val tasks = setOf(name, *names)
         project.tasks.matching { it.name in tasks }.configureEach {
-            it.dependsOn(startMockTask)
-            it.finalizedBy(stopMockTask)
+            it.dependsOn(TASK_NAME_START_MOCK)
+            it.finalizedBy(TASK_NAME_STOP_MOCK)
         }
     }
 
