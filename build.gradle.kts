@@ -193,29 +193,3 @@ tasks.named("check") {
         tasks.withType<Detekt>().matching { it.name.endsWith("Main") || it.name.endsWith("Test") },
     )
 }
-
-fun testDirectories(): Set<File> =
-    buildSet {
-        sourceSets.test {
-            resources.srcDirs.forEach { testResourcesDir ->
-                fileTree(testResourcesDir) { include("**/test.yaml") }.asFileTree.visit {
-                    if (!isDirectory) {
-                        add(file.parentFile)
-                    }
-                }
-            }
-        }
-    }
-
-for (testDir in testDirectories()) {
-    val copy =
-        tasks.register<Copy>("copyLibsTo${testDir.name.capitalized()}") {
-            group = "verification"
-            description = "Copies the gradle/libs.versions.toml file into test project ${testDir.name}"
-            from(rootProject.rootDir.resolve("gradle/libs.versions.toml"))
-            destinationDir = testDir.resolve("gradle")
-        }
-
-    tasks.named("processTestResources") { dependsOn(copy) }
-    tasks.withType(Cpd::class.java).configureEach { dependsOn(copy) }
-}
