@@ -1,6 +1,7 @@
 package io.github.gciatto.gradle.mock
 
 import io.javalin.Javalin
+import io.javalin.router.JavalinDefaultRoutingApi
 import org.gradle.api.Project
 import org.gradle.api.Task
 
@@ -39,7 +40,7 @@ open class MockServiceExtension(
             field = value
         }
 
-    private var setup: Javalin.() -> Unit = {}
+    private var setup: JavalinDefaultRoutingApi.() -> Unit = {}
         set(value) {
             errorIfAlreadyStarted()
             field = value
@@ -60,8 +61,7 @@ open class MockServiceExtension(
                                 " in $executionTimeMs ms",
                         )
                     }
-                }.also {
-                    it.setup()
+                    it.routes.setup()
                 }.start(port)
     }
 
@@ -95,7 +95,7 @@ open class MockServiceExtension(
     /**
      * Lets the user configure routes for the mock service.
      */
-    fun routes(action: Javalin.() -> Unit) {
+    fun routes(action: JavalinDefaultRoutingApi.() -> Unit) {
         setup = action
     }
 }
