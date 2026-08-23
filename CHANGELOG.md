@@ -1,3 +1,9 @@
+## [1.0.10](https://github.com/gciatto/gradle-mock-service/compare/1.0.9...1.0.10) (2026-08-23)
+
+### Bug Fixes
+
+* add unit tests MockServiceExtensionTest and integration test projects test1–test3 ([#342](https://github.com/gciatto/gradle-mock-service/issues/342)) ([ffac5eb](https://github.com/gciatto/gradle-mock-service/commit/ffac5eb277647329bc20d5fa76918e34e481dcb7))
+
 ## [1.0.9](https://github.com/gciatto/gradle-mock-service/compare/1.0.8...1.0.9) (2026-08-23)
 
 ### Dependency updates
