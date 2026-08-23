@@ -1,3 +1,13 @@
+## [1.1.1](https://github.com/gciatto/gradle-mock-service/compare/1.1.0...1.1.1) (2026-08-23)
+
+### Dependency updates
+
+* **deps:** update dependency io.github.classgraph:classgraph to v4.8.193 ([6279bc2](https://github.com/gciatto/gradle-mock-service/commit/6279bc23199e73f60adb7ef22f030c66a5764a14))
+
+### Bug Fixes
+
+* prevent pluginMaven/OSSRH coordinate collision in ProjectLocal staging repo ([#344](https://github.com/gciatto/gradle-mock-service/issues/344)) ([1fcf6ef](https://github.com/gciatto/gradle-mock-service/commit/1fcf6ef3683da1b831d9c2ec5b62d953ab27dbe4))
+
 ## [1.1.0](https://github.com/gciatto/gradle-mock-service/compare/1.0.10...1.1.0) (2026-08-23)
 
 ### Features
