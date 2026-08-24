@@ -23,6 +23,7 @@ publishOnCentral = { module = "org.danilopianini:publish-on-central", version.re
 shadowJar = "com.gradleup.shadow:shadow-gradle-plugin:9.6.1"
 npmPublish = "org.danilopianini:npm-publish-gradle-plugin:4.1.11"
 javalin = "io.javalin:javalin:7.2.3"
+slf4j-simple = "org.slf4j:slf4j-simple:2.0.18"
 
 [bundles]
 kotlin-testing = [ "kotest-junit5-jvm", "kotest-assertions-core-jvm" ]

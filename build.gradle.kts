@@ -82,6 +82,7 @@ dependencies {
     testImplementation(libs.bundles.kotlin.testing)
     testImplementation("org.junit.jupiter:junit-jupiter-migrationsupport")
     api(libs.javalin)
+    implementation(libs.slf4j.simple)
 }
 
 // Enforce Kotlin version coherence
