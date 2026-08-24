@@ -3,8 +3,8 @@ package io.github.gciatto.gradle.mock
 import io.javalin.router.JavalinDefaultRoutingApi
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.StringSpec
-import io.kotest.matchers.shouldBe
 import io.kotest.matchers.nulls.shouldNotBeNull
+import io.kotest.matchers.shouldBe
 import org.gradle.testfixtures.ProjectBuilder
 
 class MockServiceExtensionTest :
