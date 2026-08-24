@@ -1,7 +1,7 @@
 # Gradle Mock Service Plugin
 
 A Gradle plugin for starting an embedded HTTP mock service as part of your Gradle build.  
-Use it to spin up a lightweight HTTP server before integration or functional tests, define custom routes (with [Javalin](https://javalin.io/)), and tear the server down automatically once the tests finish.
+Use it to spin up a lightweight HTTP server before integration or functional tests, define custom routes (with [Javalin](https://javalin.io/) 7), and tear the server down automatically once the tests finish.
 
 ## Features
 
@@ -61,7 +61,7 @@ mockService {
 |---|---|---|---|
 | `port` | `Int` | `8080` | The port the HTTP server listens on. Must be set before the server starts. |
 | `wrapTasks(name, ...)` | function | — | Makes the named tasks depend on `startMock` and be finalized by `stopMock`. |
-| `routes { ... }` | function | — | Configures Javalin routes. The receiver is a `Javalin` instance. |
+| `routes { ... }` | function | — | Configures Javalin routes. The receiver is a `JavalinDefaultRoutingApi` instance. |
 
 ## Available tasks
 
