@@ -77,6 +77,12 @@ open class MockServiceExtension(
         server = null
     }
 
+    internal fun stopIfStarted() {
+        if (server != null) {
+            stop()
+        }
+    }
+
     /**
      * Wraps tasks (selected by name) in such a way that the mock service is started before them,
      * and stopped after them.

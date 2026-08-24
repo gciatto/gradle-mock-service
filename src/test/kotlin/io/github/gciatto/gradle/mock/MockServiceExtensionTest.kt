@@ -46,6 +46,11 @@ class MockServiceExtensionTest :
                 }
             }
 
+            "stopIfStarted is a no-op when service was not started" {
+                val ext = mockExtension()
+                ext.stopIfStarted()
+            }
+
             "start throws if already started" {
                 val ext = mockExtension()
                 ext.port = 0
