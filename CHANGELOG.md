@@ -1,3 +1,9 @@
+## [1.2.0](https://github.com/gciatto/gradle-mock-service/compare/1.1.2...1.2.0) (2026-08-24)
+
+### Features
+
+* upgrade Javalin to 7.2.3 and align mock-service routing API ([#345](https://github.com/gciatto/gradle-mock-service/issues/345)) ([075ba69](https://github.com/gciatto/gradle-mock-service/commit/075ba696751ebbecefb416e5fa167a9f0e3feff3))
+
 ## [1.1.2](https://github.com/gciatto/gradle-mock-service/compare/1.1.1...1.1.2) (2026-08-24)
 
 ### Dependency updates
