@@ -1,3 +1,14 @@
+## [1.1.2](https://github.com/gciatto/gradle-mock-service/compare/1.1.1...1.1.2) (2026-08-24)
+
+### Dependency updates
+
+* **deps:** update dependency io.javalin:javalin to v6.7.0 ([16b9720](https://github.com/gciatto/gradle-mock-service/commit/16b97206052609c7f0ba388918ab0ce5e699aa4d))
+* **deps:** update publishoncentral to v9.2.10 ([f5d7f76](https://github.com/gciatto/gradle-mock-service/commit/f5d7f76c834f2302dc6e559490e6c62acb816b47))
+
+### Bug Fixes
+
+* **release:** only release on gradle portal ([daeab36](https://github.com/gciatto/gradle-mock-service/commit/daeab36ed49cec31030f9a683f5a3570edfd67a1))
+
 ## [1.1.1](https://github.com/gciatto/gradle-mock-service/compare/1.1.0...1.1.1) (2026-08-23)
 
 ### Dependency updates
