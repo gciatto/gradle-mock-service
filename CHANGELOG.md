@@ -1,3 +1,13 @@
+## [1.4.0](https://github.com/gciatto/gradle-mock-service/compare/1.3.0...1.4.0) (2026-08-24)
+
+### Features
+
+* ensure server is stopped at the end of the build ([0bafab4](https://github.com/gciatto/gradle-mock-service/commit/0bafab4993d5bca7559ae3838ce473335fa64a09))
+
+### Bug Fixes
+
+* add mustRunAfter dependency to start/stop tasks ([19d8d4c](https://github.com/gciatto/gradle-mock-service/commit/19d8d4c8ac7e9bbb773deac703772133e7140946))
+
 ## [1.3.0](https://github.com/gciatto/gradle-mock-service/compare/1.2.0...1.3.0) (2026-08-24)
 
 ### Features
