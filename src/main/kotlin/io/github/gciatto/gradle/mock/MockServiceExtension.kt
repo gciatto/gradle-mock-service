@@ -88,7 +88,11 @@ open class MockServiceExtension(
         val tasks = setOf(name, *names)
         project.tasks.matching { it.name in tasks }.configureEach {
             it.dependsOn(TASK_NAME_START_MOCK)
+            it.mustRunAfter(TASK_NAME_START_MOCK)
             it.finalizedBy(TASK_NAME_STOP_MOCK)
+        }
+        project.tasks.matching { it.name == TASK_NAME_STOP_MOCK }.configureEach {
+            it.mustRunAfter(tasks)
         }
     }
 
