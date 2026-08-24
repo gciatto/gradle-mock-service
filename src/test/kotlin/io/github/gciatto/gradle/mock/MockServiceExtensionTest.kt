@@ -1,8 +1,10 @@
 package io.github.gciatto.gradle.mock
 
+import io.javalin.router.JavalinDefaultRoutingApi
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.nulls.shouldNotBeNull
 import org.gradle.testfixtures.ProjectBuilder
 
 class MockServiceExtensionTest :
@@ -26,9 +28,14 @@ class MockServiceExtensionTest :
 
             "start and stop succeed normally" {
                 val ext = mockExtension()
+                var routingApi: JavalinDefaultRoutingApi? = null
                 ext.port = 0
-                ext.routes { get("/ping") { it.result("pong") } }
+                ext.routes {
+                    routingApi = this
+                    get("/ping") { it.result("pong") }
+                }
                 ext.start()
+                routingApi.shouldNotBeNull()
                 ext.stop()
             }
 
